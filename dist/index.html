@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Flora — Botanical Synthesizer</title>
+  <meta name="description" content="An instrument in bloom. Shape sound with eight petal sliders and play the heart of a botanical synthesizer.">
+  <meta name="theme-color" content="#f2efe5">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="instrument">
+    <header class="header">
+      <a class="brand" href="./" aria-label="Flora home"><svg viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><ellipse cx="20" cy="20" rx="6" ry="17"/><ellipse cx="20" cy="20" rx="6" ry="17" transform="rotate(45 20 20)"/><ellipse cx="20" cy="20" rx="6" ry="17" transform="rotate(90 20 20)"/><ellipse cx="20" cy="20" rx="6" ry="17" transform="rotate(135 20 20)"/></g></svg><span>flora<span class="brand-sub">BOTANICAL SYNTHESIZER</span></span></a>
+      <div class="edition"><span class="tiny-dot"></span> AN INSTRUMENT IN BLOOM <span class="edition-no">№ 001</span></div>
+      <button id="audio-toggle" class="audio-button"><span class="status-dot"></span><span id="audio-label">Enable sound</span><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 8h3l4-4v12l-4-4H3zM13 6c3 2 3 6 0 8M15 3c5 4 5 10 0 14"/></svg></button>
+    </header>
+    <main>
+      <div class="intro"><div><p class="eyebrow">SOUND, NATURALLY.</p><h1>Let your sound unfold.</h1></div><p class="intro-copy">An organic instrument for slow discoveries.<br> Pull a petal. Play a note. Find your own nature.</p></div>
+      <div class="workspace">
+        <aside class="left-panel">
+          <section class="panel-section"><p class="eyebrow">01 / YOUR GARDEN</p><label class="field-label" for="preset">Sound palette</label><select id="preset"><option value="first">First light</option><option value="moss">Moss &amp; stone</option><option value="glass">Glasshouse</option><option value="night">Night bloom</option></select><p id="preset-description" class="muted">A soft, open tone.<br>A little room to grow.</p></section>
+          <section class="panel-section"><p class="eyebrow">OSCILLATOR</p><div class="wave-options" role="group" aria-label="Oscillator waveform"><button class="wave active" data-wave="sine" aria-pressed="true" title="Sine" aria-label="Sine wave"><svg viewBox="0 0 36 24"><path d="M2 12C8-5 12-5 18 12S28 29 34 12"/></svg></button><button class="wave" data-wave="triangle" aria-pressed="false" title="Triangle" aria-label="Triangle wave"><svg viewBox="0 0 36 24"><path d="M2 18L10 5l16 14 8-13"/></svg></button><button class="wave" data-wave="sawtooth" aria-pressed="false" title="Sawtooth" aria-label="Sawtooth wave"><svg viewBox="0 0 36 24"><path d="M2 19L16 5v14L30 5v14"/></svg></button><button class="wave" data-wave="square" aria-pressed="false" title="Square" aria-label="Square wave"><svg viewBox="0 0 36 24"><path d="M2 18V5h14v14h14V5h4"/></svg></button></div><div class="wave-caption"><span id="wave-name">Sine</span><span>PURE TONE</span></div></section>
+          <section class="panel-section"><p class="eyebrow">ROOT &amp; REGISTER</p><div class="register"><label for="root">Root<select id="root" aria-label="Root note"><option value="0">C</option><option value="2">D</option><option value="4">E</option><option value="5">F</option><option value="7">G</option><option value="9">A</option><option value="11">B</option></select></label><div><span class="field-label">Octave</span><div class="stepper"><button id="oct-down" aria-label="Lower octave">−</button><output id="octave">3</output><button id="oct-up" aria-label="Raise octave">+</button></div></div></div><p class="micro">MAJOR PENTATONIC · 8 NOTES</p></section>
+          <button id="reset" class="text-button">↺ &nbsp; Restore this palette</button>
+        </aside>
+        <section class="flower-panel" aria-label="Flower synthesizer"><div class="flower-container"><svg id="flower" viewBox="0 0 900 900" aria-label="Eight petal sliders around eight playable note petals"></svg></div><div class="flower-caption"><span class="caption-line"></span><span id="play-status">TOUCH THE HEART TO PLAY</span><span class="caption-line"></span></div><div class="performance-controls"><button id="latch" aria-pressed="false"><span class="switch"><i></i></span> Hold the bloom</button><span class="control-divider"></span><label for="volume">Output <input id="volume" type="range" min="0" max="100" value="55" aria-label="Output volume"><output id="volume-value">55%</output></label></div></section>
+        <aside class="right-panel"><section class="panel-section selection"><p class="eyebrow">02 / SHAPE A PETAL</p><div class="selection-head"><span id="selected-name">Cutoff</span><span class="petal-mark">✧</span></div><div id="selected-value" class="big-value">2.4 <span>kHz</span></div><div class="value-rule"><i id="value-fill"></i></div><p id="selected-description" class="muted">Open the flower to let more brightness into your sound.</p><p class="micro">DRAG ALONG THE PETAL TO ADJUST</p></section><section class="panel-section scope-section"><div class="scope-head"><span class="eyebrow">LIVING WAVE</span><span id="scope-status">AT REST</span></div><canvas id="scope" width="400" height="150" aria-label="Live audio waveform"></canvas><div class="scope-axis"><span>−1</span><span>0</span><span>+1</span></div></section><section class="play-guide"><span class="guide-icon">✺</span><p>Play the small inner petals.<br>Or let your keyboard bloom.</p><div class="keys" aria-label="Keyboard note shortcuts"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd><kbd>G</kbd><kbd>H</kbd><kbd>J</kbd><kbd>K</kbd></div><p class="micro">HOLD A NOTE · LAYER A CHORD</p></section></aside>
+      </div>
+    </main>
+    <footer><span>DESIGNED TO BE EXPLORED.</span><span class="footer-center"><span class="tiny-dot"></span> NO TWO BLOOMS THE SAME</span><button id="help-button" aria-expanded="false">A little guidance <span>↗</span></button></footer>
+  </div>
+  <dialog id="help"><button id="close-help" class="close" aria-label="Close guidance">×</button><p class="eyebrow">WELCOME TO YOUR GARDEN</p><h2>A little room to explore.</h2><p>Each long petal is a slider. Drag its brass handle toward the tip to increase the value. Select a petal to see what it does.</p><p>Press the center for a chord, or play the eight small inner petals individually. Your keyboard's A S D F G H J K keys play the same notes.</p><p>Turn on <strong>Hold the bloom</strong> to sustain the center chord, then shape its sound with the petals. Turn it off to release the chord.</p><p class="muted">Keyboard access: tab to any petal slider and use the arrow keys. Home and End go to the minimum and maximum. Enter or Space plays a focused note.</p></dialog>
+  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <script src="synth.js"></script>
+</body></html>
