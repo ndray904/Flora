@@ -6,7 +6,7 @@ A playable web synthesizer inspired by the eight-petal flower in your reference 
 
 ## Play
 
-Open `dist/index.html` in a modern web browser, or run `node server.mjs` and visit `http://127.0.0.1:4317`.
+Open `index.html` in a modern web browser, or run `node server.mjs` and visit `http://127.0.0.1:4317`.
 
 - Drag the brass handles along the eight long petals to change tune, detune, cutoff, resonance, attack, release, motion, and space.
 - Press the center to play a major chord. Turn on **Hold the bloom** to sustain it while shaping the sound.
@@ -16,9 +16,17 @@ Open `dist/index.html` in a modern web browser, or run `node server.mjs` and vis
 
 Sound begins after a click or key press. The browser generates the audio locally. The interface uses Google Fonts when available and falls back to local fonts offline.
 
+## Host online
+
+Upload the root `index.html` to your static web host's public folder. This single file includes the styles, flower artwork, and sound code. No separate assets, installation, build step, or server application are required. Optional Google Fonts fall back to local fonts when unavailable.
+
 ## Files
 
-`dist/index.html`, `dist/style.css`, and `dist/synth.js` are the complete browser application. No installation or build step is required.
+- `index.html`: ready-to-host single-file site.
+- `dist/index.html`, `dist/style.css`, and `dist/synth.js`: the editable, separate source files.
+- `scripts/export-html.mjs`: regenerates the root HTML file from `dist/`.
+
+After editing the files in `dist/`, run `npm run export` to update the standalone site before uploading it.
 
 ## Audio reliability
 
